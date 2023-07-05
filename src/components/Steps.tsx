@@ -1,6 +1,7 @@
 import Question from "@/components/Question";
 import { Button, message, Steps as AntdSteps } from "antd";
 import { useState } from "react";
+import axios from "axios";
 
 export const Steps = () => {
   const [current, setCurrent] = useState(0);
@@ -101,11 +102,21 @@ export const Steps = () => {
         {current === steps.length - 1 && (
           <Button
             type="primary"
-            onClick={() => {
+            onClick={async () => {
               message.success("Processing complete!");
               console.log("answer1", answer1);
               console.log("answer2", answer2);
               console.log("answer3", answer3);
+              const data = [answer1, answer2, answer3];
+              const response = await fetch("/api/sendAnswer", {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                },
+                body: JSON.stringify(data),
+              });
+              const result = await response.json();
+              console.log(result);
             }}
           >
             Done
