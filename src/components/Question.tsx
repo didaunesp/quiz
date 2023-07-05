@@ -4,12 +4,18 @@ import { useState } from "react";
 interface QuestionProps {
   number: number;
   alternatives: string[];
+  description: string;
 }
 
-export default function Question({ number, alternatives }: QuestionProps) {
+export default function Question({
+  number,
+  alternatives,
+  description,
+}: QuestionProps) {
   return (
     <>
       <h2>Question {number}</h2>
+      <p>{description}</p>
       <Alternatives alternatives={alternatives} />
     </>
   );

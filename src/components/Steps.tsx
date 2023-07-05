@@ -8,6 +8,7 @@ const steps = [
     content: (
       <Question
         number={1}
+        description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
         alternatives={[
           "alternative 1",
           "alternative 2",
@@ -22,6 +23,7 @@ const steps = [
     content: (
       <Question
         number={2}
+        description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
         alternatives={[
           "alternative 1",
           "alternative 2",
@@ -36,6 +38,7 @@ const steps = [
     content: (
       <Question
         number={3}
+        description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
         alternatives={[
           "alternative 1",
           "alternative 2",
@@ -61,11 +64,11 @@ export const Steps = () => {
   const items = steps.map((item) => ({ key: item.title, title: item.title }));
 
   const contentStyle: React.CSSProperties = {
-    lineHeight: "260px",
-    textAlign: "center",
+    textAlign: "left",
     color: "#000",
     backgroundColor: "#fefefe",
-    borderRadius: 100,
+    borderRadius: 10,
+    padding: "20px",
     border: `1px dashed #000`,
     marginTop: 16,
   };
