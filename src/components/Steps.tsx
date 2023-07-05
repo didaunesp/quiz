@@ -1,7 +1,6 @@
 import Question from "@/components/Question";
 import { Button, message, Steps as AntdSteps } from "antd";
 import { useState } from "react";
-import axios from "axios";
 
 export const Steps = () => {
   const [current, setCurrent] = useState(0);
