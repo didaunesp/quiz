@@ -1,14 +1,17 @@
-import { Input, Radio, RadioChangeEvent, Space } from "antd";
-import { useState } from "react";
+import { Radio, RadioChangeEvent, Space } from "antd";
 
 interface QuestionProps {
   number: number;
+  answer: number;
+  setAnswer: (answer: number) => void;
   alternatives: string[];
   description: string;
 }
 
 export default function Question({
   number,
+  answer,
+  setAnswer,
   alternatives,
   description,
 }: QuestionProps) {
@@ -16,25 +19,32 @@ export default function Question({
     <>
       <h2>Question {number}</h2>
       <p>{description}</p>
-      <Alternatives alternatives={alternatives} />
+      <Alternatives
+        alternatives={alternatives}
+        answer={answer}
+        setAnswer={setAnswer}
+      />
     </>
   );
 }
 
 interface AlternativesProps {
   alternatives: string[];
+  answer: number;
+  setAnswer: (answer: number) => void;
 }
 
-const Alternatives = ({ alternatives }: AlternativesProps) => {
-  const [value, setValue] = useState(1);
-
+const Alternatives = ({
+  alternatives,
+  answer,
+  setAnswer,
+}: AlternativesProps) => {
   const onChange = (e: RadioChangeEvent) => {
-    console.log("radio checked", e.target.value);
-    setValue(e.target.value);
+    setAnswer(e.target.value);
   };
 
   return (
-    <Radio.Group onChange={onChange} value={value}>
+    <Radio.Group onChange={onChange} value={answer}>
       <Space direction="vertical">
         {alternatives.map((alternative, idx) => (
           <Radio key={idx} value={idx + 1}>
