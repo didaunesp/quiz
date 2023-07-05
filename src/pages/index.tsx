@@ -1,11 +1,20 @@
-import Button from "antd/lib/button";
-import H1 from "antd/lib/typography/Title";
+import Question from "@/components/Question";
+import { Button } from "antd";
 
 export default function Home() {
   return (
-    <div>
-      <H1>Home</H1>
-      <Button type="primary">Button</Button>
+    <div style={{ padding: "10px" }}>
+      <h1>Quiz</h1>
+      <Question
+        number={1}
+        alternatives={[
+          "alternative 1",
+          "alternative 2",
+          "alternative 3",
+          "alternative 4",
+        ]}
+      />
+      <Button type="primary">Submit</Button>
     </div>
   );
 }
